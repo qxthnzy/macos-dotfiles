@@ -1,0 +1,7 @@
+brew "fastfetch"
+cask "kitty"
+cask "font-jetbrains-mono-nerd-font"
+cask "visual-studio-code"
+cask "firefox"
+cask "obsidian"
+cask "rectangle"
