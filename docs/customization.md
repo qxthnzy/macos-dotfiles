@@ -8,7 +8,7 @@ In System Settings → Wallpaper, select your own copy of the image. The active 
 
 ## Kitty, Fastfetch, and Zsh
 
-Kitty includes `current-theme.conf` and explicitly selects Menlo at 22 pt. The source configuration requested JetBrains Mono Nerd Font, but Kitty resolved that name to Menlo Regular, matching the Fastfetch screenshot. The active tab and border use lime green, the inactive tab uses muted blue, and window opacity is `0.8`. `Cmd+Shift+T` opens a tab. `Cmd+Shift+D` and `Cmd+Shift+E` split the current tab. The installer uses `XDG_CONFIG_HOME` when set, otherwise `~/.config`.
+Kitty includes `current-theme.conf` and explicitly selects Menlo at 22 pt. The source configuration requested JetBrains Mono Nerd Font, but Kitty resolved that name to Menlo Regular. The active tab and border use lime green, the inactive tab uses muted blue, and window opacity is `0.8`. `Cmd+Shift+T` opens a tab. `Cmd+Shift+D` and `Cmd+Shift+E` split the current tab. The installer uses `XDG_CONFIG_HOME` when set, otherwise `~/.config`.
 
 Run `fastfetch` when you want the system overview. Add it to your own shell startup if you want it to run automatically. The exported config displays `Bliss` as the header and omits the local IP module. Review the other hardware and system details before sharing terminal output.
 

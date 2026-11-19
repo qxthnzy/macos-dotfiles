@@ -13,8 +13,3 @@
 .obsidian/
 profiles.ini
 prefs.js
-screenshots/*
-!screenshots/README.md
-!screenshots/desktop.png
-!screenshots/terminal.png
-!screenshots/apps.png

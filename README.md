@@ -4,14 +4,6 @@
 
 Windows XP nostalgia meets Liquid Glass. Bliss sets the scene, with navy windows, lime accents, and just enough transparency to let the hillside show through. The palette carries from Kitty's tab bar to the editor, browser chrome, and Obsidian.
 
-## Preview
-
-| Desktop | Terminal | Apps |
-| --- | --- | --- |
-| Bliss and the left-side Dock | Kitty tabs, splits, and Fastfetch | VS Code, Firefox, and Obsidian |
-
-Gallery slots are ready for [reviewed screenshots](screenshots/README.md).
-
 ## Setup
 
 | Component | Setup |
@@ -33,7 +25,7 @@ Gallery slots are ready for [reviewed screenshots](screenshots/README.md).
 - Navy surfaces (`#0c1830`) with lime highlights (`#a9df5a`), sky-blue accents (`#78b9ff`), and cool white text (`#e2eeff`).
 - Kitty's top tab bar and split layout provide the multiplexer look through Kitty itself.
 - Kitty, VS Code, Firefox, and Obsidian each use their own transparency settings. The shared navy tint is anchored at 80% where configured.
-- Fastfetch uses the built-in macOS logo in Bliss colors and a generic title suitable for screenshots.
+- Fastfetch uses the built-in macOS logo in Bliss colors and a generic title.
 
 ## Installation
 
