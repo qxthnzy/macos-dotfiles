@@ -8,8 +8,7 @@ trap 'rm -rf -- "$test_dir"' EXIT
 export HOME="$test_dir/home"
 export XDG_CONFIG_HOME="$test_dir/config"
 
-mkdir -p "$HOME/Library/Fonts" "$XDG_CONFIG_HOME/kitty"
-touch "$HOME/Library/Fonts/JetBrainsMonoNerdFont-Regular.ttf"
+mkdir -p "$HOME" "$XDG_CONFIG_HOME/kitty"
 printf 'original\n' > "$XDG_CONFIG_HOME/kitty/kitty.conf"
 
 "$root/scripts/install.sh" --dry-run
@@ -27,4 +26,27 @@ backups=("$HOME"/.macos-dotfiles-backup.*)
 "$root/scripts/install.sh"
 backups=("$HOME"/.macos-dotfiles-backup.*)
 [[ ${#backups[@]} == 1 ]]
+settings="$HOME/Library/Application Support/Code/User/settings.json"
+mkdir -p "$(dirname -- "$settings")"
+printf '%s\n' '{"editor.wordWrap":"on","vscode_vibrancy.imports":["custom.css"]}' > "$settings"
+"$root/scripts/install.sh" --vscode --dry-run
+[[ ! -e "$HOME/.vscode/vibrancy-tabs.css" ]]
+"$root/scripts/install.sh" --vscode
+cmp "$root/configs/vscode/vibrancy-tabs.css" "$HOME/.vscode/vibrancy-tabs.css"
+python3 - "$settings" "$HOME/.vscode/vibrancy-tabs.css" <<'PYTHON'
+import json
+from pathlib import Path
+import sys
+
+settings = json.loads(Path(sys.argv[1]).read_text())
+assert settings["editor.wordWrap"] == "on"
+assert settings["workbench.colorTheme"] == "Dark+"
+assert settings["vscode_vibrancy.imports"] == ["custom.css", sys.argv[2]]
+PYTHON
+"$root/scripts/install.sh" --vscode
+backups=("$HOME"/.macos-dotfiles-backup.*)
+[[ ${#backups[@]} == 2 ]]
+printf '%s\n' '{ // keep this comment' '}' > "$settings"
+if "$root/scripts/install.sh" --vscode; then exit 1; fi
+[[ $(cat "$settings") == $'{ // keep this comment\n}' ]]
 printf 'Installer smoke test passed.\n'

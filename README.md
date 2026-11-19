@@ -20,7 +20,7 @@ Gallery slots are ready for [reviewed screenshots](screenshots/README.md).
 | Desktop / window management | Native macOS desktop and Liquid Glass; Rectangle configured for window snapping |
 | Terminal | Kitty, with native rounded Powerline tabs and split panes |
 | Shell | Zsh, Oh My Zsh, and the bundled `robbyrussell` prompt |
-| Font | JetBrains Mono Nerd Font; 22 pt in Kitty, editor font size 20 in VS Code |
+| Font | Menlo Regular at 22 pt in Kitty; JetBrains Mono Nerd Font at editor font size 20 in VS Code |
 | Theme | Bliss palette in Kitty and VS Code; Cave Daisy CSS in Firefox; Kitty Navy in Obsidian |
 | Editor | VS Code Dark+ with workbench and syntax overrides, plus Vibrancy Continued |
 | Browser | Firefox with Lagoon, custom chrome and page CSS, and Dark Reader |
@@ -45,7 +45,7 @@ brew bundle --file Brewfile
 ./scripts/install.sh
 ```
 
-The installer applies Kitty and Fastfetch settings, and backs up any changed files first. Restart Kitty and run `fastfetch`. Follow the [app-by-app guide](docs/customization.md) for the shell prompt, editor, browser, Obsidian, and desktop. See [dependencies](docs/dependencies.md) for versions and optional components.
+The default installation applies Kitty and Fastfetch settings. Add `--vscode` to merge the appearance settings into VS Code’s default profile and install its tab CSS. Both modes back up existing files before replacing them. Restart Kitty and run `fastfetch`. The [app-by-app guide](docs/customization.md) covers Vibrancy activation and the manual steps for Zsh, Firefox, Obsidian, and the desktop. See [dependencies](docs/dependencies.md) for versions and optional components.
 
 ## Configuration
 

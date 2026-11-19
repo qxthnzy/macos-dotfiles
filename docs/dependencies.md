@@ -1,6 +1,6 @@
 # Dependencies
 
-The [Brewfile](../Brewfile) covers the apps used in the setup. The [installer](../scripts/install.sh) needs only Kitty, Fastfetch, and the patched JetBrains Mono font. Selective installation is possible with `brew install fastfetch` followed by `brew install --cask kitty font-jetbrains-mono-nerd-font`.
+The [Brewfile](../Brewfile) covers the apps used in the setup. The [installer](../scripts/install.sh) needs Kitty and Fastfetch for its default mode. Menlo ships with macOS. The optional `--vscode` mode also requires Python 3. JetBrains Mono Nerd Font remains part of the editor and browser setup.
 
 | Component | Observed version or source |
 | --- | --- |
