@@ -1,0 +1,79 @@
+// Bliss palette for the built-in macOS logo.
+{
+  "logo": {
+    "type": "builtin",
+    "source": "macos",
+    "color": {
+      "1": "38;2;247;250;255",
+      "2": "38;2;169;213;255",
+      "3": "38;2;120;185;255",
+      "4": "38;2;169;223;90",
+      "5": "38;2;138;202;68",
+      "6": "38;2;92;154;53"
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;169;223;90",
+      "title": "38;2;247;250;255",
+      "output": "38;2;226;238;255",
+      "separator": "38;2;120;185;255"
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "Bliss"
+    },
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    {
+      "type": "display",
+      "key": "Display",
+      "format": "{width}x{height} @ {refresh-rate} Hz"
+    },
+    "de",
+    {
+      "type": "wm",
+      "key": "WM",
+      "format": "{pretty-name}"
+    },
+    "wmtheme",
+    "theme",
+    "icons",
+    "terminal",
+    "terminalfont",
+    {
+      "type": "font",
+      "format": "{font1}"
+    },
+    {
+      "type": "cursor",
+      "format": "{theme}"
+    },
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    {
+      "type": "disk",
+      "key": "Disk",
+      "format": "{size-used} / {size-total} ({size-percentage})"
+    },
+    {
+      "type": "battery",
+      "key": "Battery",
+      "format": "{capacity} [{status}]"
+    },
+    "poweradapter",
+    "locale",
+    "break",
+    "colors"
+  ]
+}

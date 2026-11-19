@@ -1,0 +1,204 @@
+/* Прозрачный фон страниц: сквозь них видно стеклянное окно (тонировка в userChrome.css).
+   user !important сильнее author !important, поэтому перебивает и сайты, и Dark Reader. */
+html, body,
+body > #root, body > #app, body > #__next, body > #__nuxt, body > main {
+  background-color: transparent !important;
+}
+/* ponytail: красим только корневые контейнеры; у сайтов с непрозрачными внутренними блоками
+   эти блоки останутся #0c1830 (от Dark Reader). Добавляй селекторы конкретных сайтов сюда. */
+
+/* claude.ai в Cave Daisy. User !important перебивает их токены на любых селекторах.
+   ponytail: держится на именах переменных claude.ai (--cds-*, --df-*); переименуют - поправь тут. */
+@-moz-document domain(claude.ai) {
+  :root, .cds-root, .cds-dark-scope, .dframe-root, .dframe-content-inner {
+    --cds-surface-1: #102341 !important;
+    --cds-surface-2: #172d50 !important;
+    --cds-surface-3: #172d50 !important;
+    --cds-surface-popover: #1c385f !important;
+    --cds-fizzy-lake-color-sidebar: #0c1830 !important;
+    --cds-fizzy-lake-color-card-hover: #172d50 !important;
+    --cds-border-line: #304b70 !important;
+    --cds-fizzy-lake-color-seam: #304b70 !important;
+    --cds-fizzy-lake-color-composer-ring: #2b527d !important;
+
+    --cds-text-primary: #e2eeff !important;
+    --cds-text-secondary: #a9bfdb !important;
+    --cds-text-stays-secondary: #a9bfdb !important;
+    --cds-text-muted: #859fbe !important;
+    --cds-fizzy-lake-color-secondary: #a9bfdb !important;
+    --cds-fizzy-lake-color-plain-secondary: #a9bfdb !important;
+    --cds-fizzy-lake-color-plain-muted: #859fbe !important;
+    --cds-fizzy-lake-color-tertiary: #859fbe !important;
+    --cds-fizzy-lake-color-placeholder: #859fbe !important;
+    --cds-fill-primary: #e2eeff !important;
+    --cds-fill-primary-hover: #c1d4ec !important;
+    --cds-on-primary: #0c1830 !important;
+
+    --cds-role-accent-300: #c3eb7d !important;
+    --cds-role-accent-400: #a9df5a !important;
+    --cds-role-accent-450: #8aca44 !important;
+    --cds-fill-accent-hover: #a9df5a !important;
+    --cds-fill-danger: #d77a6e !important;
+    --cds-text-danger: #eb9a8e !important;
+    --cds-fill-success: #8aca44 !important;
+    --cds-text-success: #c3eb7d !important;
+    --cds-text-warning: #e8c95a !important;
+    --cds-text-pro: #bcbedf !important;
+
+    --df-z0: 193 47.4% 3.7% !important;
+    --df-z1: 197 39.1% 9.0% !important;
+    --df-z2: 191 34.4% 12.0% !important;
+    --df-z3: 180 29.7% 14.5% !important;
+    --df-z4: 180 29.3% 19.4% !important;
+    --df-z5: 184 27.7% 23.3% !important;
+    --df-z6: 183 12.3% 66.5% !important;
+    --df-bg-page-hsl: 197 39.1% 9.0% !important;
+
+    /* старые токены claude.ai, ещё встречаются на части страниц */
+    --bg-000: 180 29.7% 14.5% !important;
+    --bg-100: 197 39.1% 9.0% !important;
+    --bg-200: 197 41.2% 6.7% !important;
+    --bg-300: 197 41.2% 6.7% !important;
+    --text-000: 100 25.0% 95.3% !important;
+    --text-100: 158 19.3% 88.8% !important;
+    --text-200: 180 11.9% 73.7% !important;
+    --text-300: 183 12.3% 66.5% !important;
+    --text-500: 185 14.0% 35.1% !important;
+    --accent-main-100: 118 36.8% 66.5% !important;
+  }
+}
+
+/* шрифт как в kitty: на claude.ai значки - SVG, так что общий * ничего не ломает */
+@-moz-document domain(claude.ai) {
+  * { font-family: "JetBrains Mono Nerd Font", monospace !important; }
+}
+
+/* github.com в Cave Daisy. Работает и в светлой, и в тёмной теме GitHub.
+   ponytail: держится на именах Primer-переменных (--bgColor-*, --fgColor-*); переименуют - поправь тут. */
+@-moz-document domain(github.com) {
+  :root, [data-color-mode], [data-color-mode] * {
+    color-scheme: dark !important;
+    --bgColor-default: #0c1830 !important;
+    --bgColor-muted: #102341 !important;
+    --bgColor-inset: #080f20 !important;
+    --bgColor-emphasis: #304b70 !important;
+    --bgColor-neutral-muted: #1c385f !important;
+    --bgColor-accent-muted: #1c385f !important;
+    --bgColor-accent-emphasis: #8aca44 !important;
+    --bgColor-success-muted: #1b3324 !important;
+    --bgColor-success-emphasis: #8aca44 !important;
+    --bgColor-danger-muted: #3a1f1e !important;
+    --bgColor-danger-emphasis: #d77a6e !important;
+    --bgColor-attention-muted: #3a3320 !important;
+    --bgColor-attention-emphasis: #e8c95a !important;
+    --bgColor-done-muted: #26283a !important;
+    --bgColor-done-emphasis: #9a9cc8 !important;
+    --overlay-bgColor: #172d50 !important;
+    --header-bgColor: #0c1830 !important;
+
+    --fgColor-default: #e2eeff !important;
+    --fgColor-muted: #a9bfdb !important;
+    --fgColor-accent: #a9df5a !important;
+    --fgColor-link: #a9df5a !important;
+    --fgColor-success: #c3eb7d !important;
+    --fgColor-danger: #eb9a8e !important;
+    --fgColor-attention: #f2dc8a !important;
+    --fgColor-done: #bcbedf !important;
+    --fgColor-onEmphasis: #0c1830 !important;
+    --header-fgColor-default: #e2eeff !important;
+    --header-fgColor-logo: #a9df5a !important;
+
+    --borderColor-default: #304b70 !important;
+    --borderColor-muted: #1c385f !important;
+    --borderColor-accent-emphasis: #a9df5a !important;
+    --focus-outlineColor: #a9df5a !important;
+    --underlineNav-borderColor-active: #a9df5a !important;
+
+    --button-default-bgColor-rest: #172d50 !important;
+    --button-default-bgColor-hover: #1c385f !important;
+    --button-default-borderColor-rest: #304b70 !important;
+    --button-primary-bgColor-rest: #8aca44 !important;
+    --button-primary-bgColor-hover: #a9df5a !important;
+    --button-primary-fgColor-rest: #0c1830 !important;
+
+    --contribution-default-bgColor-0: #172d50 !important;
+    --contribution-default-bgColor-1: #2b4a3a !important;
+    --contribution-default-bgColor-2: #5c9a35 !important;
+    --contribution-default-bgColor-3: #8aca44 !important;
+    --contribution-default-bgColor-4: #c3eb7d !important;
+
+    /* подсветка кода = ANSI-цвета kitty */
+    --color-prettylights-syntax-comment: #647e9e !important;
+    --color-prettylights-syntax-constant: #78b9ff !important;
+    --color-prettylights-syntax-entity: #9a9cc8 !important;
+    --color-prettylights-syntax-entity-tag: #8aca44 !important;
+    --color-prettylights-syntax-keyword: #d77a6e !important;
+    --color-prettylights-syntax-string: #74b8b0 !important;
+    --color-prettylights-syntax-variable: #e8c95a !important;
+    --color-prettylights-syntax-storage-modifier-import: #e2eeff !important;
+
+    --fontStack-monospace: "JetBrains Mono Nerd Font", monospace !important;
+    --fontStack-sansSerif: "JetBrains Mono Nerd Font", monospace !important;
+    --fontStack-system: "JetBrains Mono Nerd Font", monospace !important;
+  }
+  ::selection { background: #2b527d !important; color: #f0f6ff !important; }
+}
+
+/* youtube.com в Cave Daisy. Работает и в светлой, и в тёмной теме YouTube.
+   ponytail: держится на именах переменных YouTube (--yt-spec-*) и классах плеера (.ytp-*); переименуют - поправь тут. */
+@-moz-document domain(youtube.com) {
+  :root, html[dark], [dark], ytd-app, ytd-masthead {
+    color-scheme: dark !important;
+    --yt-spec-base-background: #0c1830 !important;
+    --yt-spec-raised-background: #102341 !important;
+    --yt-spec-menu-background: #172d50 !important;
+    --yt-spec-inverted-background: #e2eeff !important;
+    --yt-spec-general-background-a: #0c1830 !important;
+    --yt-spec-general-background-b: #102341 !important;
+    --yt-spec-general-background-c: #172d50 !important;
+    --yt-spec-brand-background-solid: #0c1830 !important;
+    --yt-spec-brand-background-primary: #0c1830 !important;
+    --yt-spec-brand-background-secondary: #102341 !important;
+    --yt-spec-additive-background: #172d50 !important;
+    --yt-spec-badge-chip-background: #172d50 !important;
+    --yt-spec-button-chip-background-hover: #1c385f !important;
+    --yt-spec-10-percent-layer: #304b70 !important;
+    --yt-spec-outline: #304b70 !important;
+    --yt-spec-touch-response: #2b527d !important;
+
+    --yt-spec-text-primary: #e2eeff !important;
+    --yt-spec-text-primary-inverse: #0c1830 !important;
+    --yt-spec-text-secondary: #a9bfdb !important;
+    --yt-spec-text-disabled: #647e9e !important;
+    --yt-spec-icon-active-other: #e2eeff !important;
+    --yt-spec-icon-inactive: #a9bfdb !important;
+    --yt-spec-icon-disabled: #647e9e !important;
+
+    --yt-spec-call-to-action: #a9df5a !important;
+    --yt-spec-suggested-action: #1c385f !important;
+    --yt-spec-brand-button-background: #8aca44 !important;
+    --yt-spec-static-brand-red: #8aca44 !important;
+    --yt-spec-brand-icon-active: #a9df5a !important;
+    --yt-spec-themed-blue: #a9df5a !important;
+    --yt-spec-themed-green: #c3eb7d !important;
+    --yt-spec-error-indicator: #eb9a8e !important;
+  }
+  /* полоса прогресса и бейджи плеера вместо красного - зелёное сияние */
+  .ytp-play-progress, .ytp-swatch-background-color, #progress.ytd-thumbnail-overlay-resume-playback-renderer {
+    background: #8aca44 !important;
+  }
+  .ytp-scrubber-button { background: #a9df5a !important; }
+  ::selection { background: #2b527d !important; color: #f0f6ff !important; }
+  /* шрифт как в kitty, кроме субтитров */
+  *:not(.ytp-caption-segment) { font-family: "JetBrains Mono Nerd Font", monospace !important; }
+}
+
+/* Cave Daisy на всех сайтах: то, что у браузера общее (выделение, скроллбар, чекбоксы, курсор ввода).
+   Фон и текст везде красит Dark Reader (~/.config/darkreader/alice-aurora.json).
+   ponytail: шрифт глобально не трогаем - сломает иконочные шрифты (Material Icons и т.п.). */
+:root {
+  scrollbar-color: #304b70 #0c1830 !important;
+  accent-color: #8aca44 !important;
+  caret-color: #a9df5a !important;
+}
+::selection { background: #2b527d !important; color: #f0f6ff !important; }

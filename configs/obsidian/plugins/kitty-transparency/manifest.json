@@ -1,0 +1,9 @@
+{
+  "id": "kitty-transparency",
+  "name": "Kitty Transparency",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Clear window transparency on macOS",
+  "author": "macos-dotfiles contributors",
+  "isDesktopOnly": true
+}

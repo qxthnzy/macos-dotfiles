@@ -1,0 +1,98 @@
+/* Cave Daisy — в тон kitty / VS Code / Obsidian (Firefox 157) */
+:root, .tabbrowser-tab, #tabbrowser-tabs {
+  --aa-bg: #0c1830;
+  --aa-glass: rgba(12, 24, 48, 0.8);   /* = kitty background_opacity 0.8 */
+  --aa-bg2: rgba(16, 35, 65, 0.85);
+  --aa-bg3: #1c385f;
+  --aa-fg: #e2eeff;
+  --aa-dim: #a9bfdb;
+  --aa-accent: #a9df5a;
+  --aa-border: #304b70;
+  --aa-sel: #2b527d;
+
+  --toolbar-bgcolor: transparent !important;
+  --toolbar-background-color: transparent !important;
+  --toolbar-color: var(--aa-fg) !important;
+  --toolbar-text-color: var(--aa-fg) !important;
+  --toolbox-text-color-current: var(--aa-fg) !important;
+  --toolbar-field-background-color: var(--aa-bg2) !important;
+  --toolbar-field-focus-background-color: var(--aa-bg) !important;
+  --toolbar-field-color: var(--aa-fg) !important;
+  --toolbar-field-focus-color: var(--aa-fg) !important;
+  --toolbar-field-border-color: var(--aa-border) !important;
+  --toolbar-field-focus-border-color: var(--aa-accent) !important;
+  --toolbarbutton-icon-fill: var(--aa-accent) !important;
+  --focus-outline-color: var(--aa-accent) !important;
+  --chrome-content-separator-color: var(--aa-border) !important;
+  --sidebar-background-color: transparent !important;
+  --sidebar-text-color: var(--aa-fg) !important;
+  --arrowpanel-background: var(--aa-bg) !important;
+  --arrowpanel-color: var(--aa-fg) !important;
+  --arrowpanel-border-color: var(--aa-border) !important;
+  --urlbarView-highlight-background: var(--aa-sel) !important;
+  --urlbarView-highlight-color: #f0f6ff !important;
+  --urlbar-box-bgcolor: var(--aa-bg2) !important;
+  --button-primary-bgcolor: var(--aa-accent) !important;
+  --button-primary-color: var(--aa-bg) !important;
+  --color-accent-primary: var(--aa-accent) !important;
+
+  /* вкладки: как active/inactive_tab_* в kitty.conf */
+  --tab-border-radius: 999px !important;
+  --tab-background-color: var(--aa-bg3) !important;
+  --tab-background-color-hover: #244575 !important;
+  --tab-background-color-selected: var(--aa-accent) !important;
+  --tab-text-color: var(--aa-dim) !important;
+  --tab-text-color-hover: var(--aa-fg) !important;
+  --tab-text-color-selected: var(--aa-bg) !important;
+  --tab-border-color: var(--aa-border) !important;
+  --tab-border-color-hover: var(--aa-accent) !important;
+  --tab-border-color-selected: var(--aa-accent) !important;
+  --tab-border-color-selected-leading: var(--aa-accent) !important;
+  --tab-border-color-selected-trailing: var(--aa-accent) !important;
+  --tab-box-shadow-selected: none !important;
+  --tab-close-button-text-color: currentColor !important;
+}
+
+/* стеклянное окно: размытый рабочий стол + тонировка #0c1830 @ 80% */
+#main-window, body, #browser, #tabbrowser-tabbox, #tabbrowser-tabpanels,
+#navigator-toolbox, #TabsToolbar, #nav-bar, #PersonalToolbar,
+#sidebar-box, #sidebar-main, sidebar-main {
+  background-color: transparent !important;
+  color: var(--aa-fg) !important;
+  border-color: var(--aa-border) !important;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -moz-default-appearance: -moz-window-titlebar;
+  appearance: auto;
+}
+#navigator-toolbox, #sidebar-main, sidebar-main, #sidebar-box {
+  background-color: var(--aa-glass) !important;
+}
+
+/* шрифт как в терминале */
+#navigator-toolbox, #urlbar, .tab-label, menupopup, panel, #sidebar-box {
+  font-family: "JetBrains Mono Nerd Font", "JetBrains Mono", monospace !important;
+}
+
+/* выбранная вкладка: голубая пилюля, тёмный жирный текст, без градиентной рамки */
+.tab-background[selected] {
+  background: var(--aa-accent) !important;
+  outline: 1.5px solid var(--aa-accent) !important;
+}
+.tab-content[selected], .tab-content[selected] .tab-label {
+  color: var(--aa-bg) !important;
+  font-weight: bold !important;
+}
+.tabbrowser-tab:not([selected]) .tab-background {
+  outline: 1px solid var(--aa-border) !important;
+}
+
+#urlbar-background { border-radius: 10px !important; }
+
+/* тонировка под страницами: сами сайты прозрачные (userContent.css) */
+#tabbrowser-tabpanels { background-color: var(--aa-glass) !important; }

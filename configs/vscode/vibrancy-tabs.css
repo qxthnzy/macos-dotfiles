@@ -1,0 +1,6 @@
+/* полоска вкладок — цвет как у titleBar и фона редактора (vibrancy глушит editorGroupHeader.tabsBackground через !important) */
+.editor-group-container > .title,
+.editor-group-container > .title .tabs-and-actions-container,
+.editor-group-container > .tabs {
+  background-color: #0e1b20 !important;
+}

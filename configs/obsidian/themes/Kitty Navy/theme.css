@@ -1,0 +1,100 @@
+/* Палитра из ~/.config/kitty/current-theme.conf */
+.theme-dark {
+  --kn-bg: #0c1830;
+  --kn-bg-alt: #102341;
+  --kn-surface: #172d50;
+  --kn-selection: #2b527d;
+  --kn-border: #304b70;
+
+  --background-primary: var(--kn-bg);
+  --background-primary-alt: var(--kn-bg-alt);
+  --background-secondary: var(--kn-bg-alt);
+  --background-secondary-alt: var(--kn-bg);
+  --background-modifier-border: var(--kn-border);
+  --background-modifier-hover: var(--kn-surface);
+  --background-modifier-active-hover: #1c385f;
+  --background-modifier-form-field: var(--kn-surface);
+  --titlebar-background: var(--kn-bg-alt);
+  --titlebar-background-focused: var(--kn-bg-alt);
+  --tab-container-background: var(--kn-bg-alt);
+  --text-selection: var(--kn-selection);
+
+  --text-normal: #e2eeff;
+  --text-muted: #a9bfdb;
+  --text-faint: #647e9e;
+  --text-accent: #a9df5a;
+  --text-accent-hover: #a9d5ff;
+  --interactive-accent: #2b527d;
+  --interactive-accent-hover: #78b9ff;
+  --caret-color: #a9df5a;
+
+  --color-accent: #a9df5a;
+  --color-red: #d77a6e;
+  --color-green: #8aca44;
+  --color-yellow: #e8c95a;
+  --color-blue: #78b9ff;
+  --color-purple: #9a9cc8;
+  --color-cyan: #74b8b0;
+
+  --h1-color: #a9df5a;
+  --h2-color: #9a9cc8;
+  --h3-color: #74b8b0;
+  --h4-color: #8aca44;
+  --h5-color: #e8c95a;
+  --h6-color: #d77a6e;
+  --link-color: #a9df5a;
+  --link-external-color: #a9df5a;
+  --link-unresolved-color: #647e9e;
+  --tag-color: #9a9cc8;
+  --tag-background: #9a9cc822;
+  --bold-color: #f7faff;
+  --italic-color: #bcbedf;
+  --blockquote-border-color: #78b9ff;
+  --hr-color: var(--kn-border);
+
+  --code-background: var(--kn-surface);
+  --code-normal: #e2eeff;
+  --code-comment: #6e89aa;
+  --code-keyword: #9a9cc8;
+  --code-function: #78b9ff;
+  --code-string: #8aca44;
+  --code-value: #e8c95a;
+  --code-property: #74b8b0;
+  --code-tag: #d77a6e;
+  --code-operator: #99b4d5;
+  --code-punctuation: #99b4d5;
+
+  --graph-node: #c9c4ab;
+  --graph-node-focused: #c1de91;
+  --graph-node-tag: #9abb65;
+  --graph-line: var(--kn-border);
+}
+
+/* Прозрачность без размытия (работает с плагином Kitty Transparency). 0.8 = background_opacity в kitty */
+/* Цвет подсвеченных связей в глобальном и локальном графах. */
+.theme-dark .graph-view.color-line-highlight {
+  color: #b0cf78;
+}
+.theme-dark .graph-view.color-arrow {
+  color: #b0d0ff;
+}
+
+html:has(> body.kn-transparent),
+body.kn-transparent {
+  background: transparent !important;
+}
+body.kn-transparent .app-container {
+  background-color: rgba(12, 24, 48, 0.8) !important;
+}
+body.kn-transparent :is(.titlebar, .workspace, .workspace-split, .workspace-tabs, .workspace-tab-header-container,
+  .workspace-leaf, .workspace-leaf-content, .view-header, .view-content, .workspace-ribbon, .status-bar,
+  .workspace-sidedock-vault-profile, .graph-view-container,
+  .markdown-source-view, .cm-editor, .markdown-reading-view, .markdown-preview-view, .nav-files-container) {
+  background-color: transparent !important;
+}
+body.kn-transparent .workspace-ribbon.mod-primary::before {
+  background-color: transparent !important;
+}
+body.kn-transparent .workspace-tab-header.is-active {
+  background-color: rgba(169, 223, 90, 0.08) !important;
+}
