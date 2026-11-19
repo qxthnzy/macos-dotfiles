@@ -1,0 +1,17 @@
+.DS_Store
+*.swp
+*.bak
+*.backup
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.sqlite*
+*.db
+*.log
+.obsidian/
+profiles.ini
+prefs.js
+screenshots/*
+!screenshots/README.md
